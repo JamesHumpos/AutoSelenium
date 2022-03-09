@@ -1,0 +1,42 @@
+from ast import Try
+from multiprocessing.connection import wait
+from signal import pause
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+
+#!/usr/bin/env python3
+from selenium import webdriver
+
+
+# Github credentials
+username = "jameshumpos@gmail.com"
+password = "Grandad123"
+
+# initialize the Chrome driver
+#driver = webdriver.Chrome("chromedriver")
+
+options = webdriver.ChromeOptions()
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', chrome_options=options)
+
+#driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromium-browser")
+driver.get("https://www.racingtv.com/members/login")
+# find username/email field and send the username itself to the input field
+driver.find_element_by_id("username").send_keys(username)
+# find password input field and insert password as well
+driver.find_element_by_id("password").send_keys(password)
+# click login button
+#driver.find_element_by_id("login_form").click()
+#driver.find_element_by_class_name("login_form").click()
+
+button = driver.find_element_by_xpath("/html/body/div[1]/div/div/div[2]/div[1]/div/form/div[4]/button")
+button.click()
+#pause(5)
+driver.get("https://www.racingtv.com/videos/watch/live")
+
+
+# this is the hover link for login at live racing page /html/body/div[1]/header/nav/div[1]/div[3]/div[2]/a
+#/html/body/div/div/div[2]/div[2]/div/input
+#/html/body/div/div/div[2]/div[3]/div/input
+#/html/body/div/div/div[2]/div[6]/button
