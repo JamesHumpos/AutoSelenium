@@ -9,8 +9,8 @@ from selenium import webdriver
 
 
 # Github credentials
-username = "jameshumpos@gmail.com"
-password = "Grandad123"
+username = "james....@gmail.com"
+password = 
 
 # initialize the Chrome driver
 #driver = webdriver.Chrome("chromedriver")
